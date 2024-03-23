@@ -20,7 +20,6 @@ class Graph
 public:
     int V;  // кількість вершин
     vector <Edge> edges;  // вектор ребер
-    static const int INF = 500;
 
     vector<vector<pair<int, int>>> adj_list;  // список суміжності графа
 
@@ -60,29 +59,15 @@ public:
         vector <int> dist(V + 1, LLONG_MAX);
         dist[0] = 0;
 
-        for (int i = 1; i <= V; i++)
-        {
-            //bool check = false;
+        for (int i = 1; i < V; i++)
             for (auto e : edges)
-            {
-                int u = e.from;
-                int v = e.to;
-                int w = e.weight;
-                if (dist[u] != INF && dist[v] > dist[u] + w)
-                {
-                    dist[v] = dist[u] + w;
-                    //check = true;
-                }
-            }
-
-            //if (!check) break;
-        }
-
-        //The shortest distance values are values of c[].
+                if (dist[e.from] != LLONG_MAX && dist[e.to] > dist[e.from] + e.weight) dist[e.to] = dist[e.from] + e.weight;
+        
+        //The shortest distance values are values of h[].
         return dist;
     }
 
-    //Dijkstra Algorithm
+    // Dijkstra Algorithm
     vector<int> Dijkstra(int src, vector<vector<pair<int, int>>>& adj_list, int V, vector<vector<int>>& pathes)
     {
         vector<int> dist(V + 1, numeric_limits<int>::max());
@@ -125,26 +110,22 @@ public:
 
     vector <vector<int>> Johnson(int E, vector<vector<int>>& pathes)
     {
-        //The shortest distance values are values of c[].
-        vector <int> C = bellmanFord(V, edges);
+        // The shortest distance values are values of h[].
+        vector <int> h = bellmanFord(V, edges);
 
         for (const Edge& edge : edges) {
-            if (C[edge.from] != LLONG_MAX && C[edge.to] > C[edge.from] + edge.weight) {
-                cout << "Граф містить цикл з негативною вагою." << endl;
+            if (h[edge.from] != LLONG_MAX && h[edge.to] > h[edge.from] + edge.weight) {
+                cout << "The graph contains a cycle with negative weight." << endl;
                 return vector <vector<int>>(); // Повертаємо порожній вектор
             }
         }
-        //if (C == vector <int>()) 
-        //{
-        //    cout << "The graph contains a cycle with negative weight.";
-        //    return vector <vector<int>>();
-        //}
+
         for (int i = 0; i < E; i++)
         {
             int u = edges[i].from;
             int v = edges[i].to;
-            //For every pair of vertices u and v, having an edge (u -> v), add C[u] - C[v] to the edge weight.
-            edges[i].weight += (C[u] - C[v]);
+            //For every pair of vertices u and v, having an edge (u -> v), add h[u] - h[v] to the edge weight.
+            edges[i].weight += (h[u] - h[v]);
         }
         /*
             2D matrix to store all-pairs shortest path
