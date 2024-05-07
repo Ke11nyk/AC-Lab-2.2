@@ -11,43 +11,52 @@
 
 using namespace std;
 
+/// <summary>
+/// Struct to specify an edge as from to weight
+/// </summary>
 struct Edge {
-    int from;   // start vertex
-    int to;     // final vertex
-    int weight; // weight of edge
+    int from;   
+    int to;     
+    int weight; 
+
+    /// <summary>
+    /// Constructor of the edge
+    /// </summary>
+    /// <param name="f">Start vertex</param>
+    /// <param name="t">Final vertex</param>
+    /// <param name="w">Weight of edge</param>
     Edge(int f, int t, int w) : from(f), to(t), weight(w) {}
 };
 
+/// <summary>
+/// Basic class of graph
+/// </summary>
 class GraphBase {
 protected:
-    int V; // amount of vertices
-    vector<Edge> edges; // vector of edges
-    vector<vector<pair<int, int>>> adj_list; // graph adjacency list
+    int V; 
+    vector<Edge> edges;  
+    /// <summary>
+    /// Graph adjacency list
+    /// </summary>
+    vector<vector<pair<int, int>>> adj_list; 
 
+    /// <summary>
+    /// Constructor of the graph
+    /// </summary>
+    /// <param name="edges">Vector of edges</param>
+    /// <param name="V">Number of vertices</param>
     GraphBase(vector<Edge>& edges, int V) : edges(edges), V(V) {
         adj_list.resize(V + 1);
         for (const auto& edge : edges)
             adj_list[edge.from].emplace_back(edge.to, edge.weight);
     }
 
-public:
-    void print_graph() {
-        for (int i = 1; i <= V; ++i) {
-            cout << "Vertex " << i << ": ";
-            for (const auto& neighbor : adj_list[i]) {
-                cout << "(" << neighbor.first << ", " << neighbor.second << ") ";
-            }
-            cout << endl;
-        }
-        cout << endl;
-    }
-
-    virtual vector<vector<int>> Johnson(int E, vector<vector<int>>& paths) = 0;
-};
-
-
-class OldGraphRealization : public GraphBase {
-private:
+    /// <summary>
+    /// Bellman-Ford algorithm
+    /// </summary>
+    /// <param name="V">Number of vertices</param>
+    /// <param name="edges">Vector with edges of graph</param>
+    /// <returns>Distance(weight) of the shortest path</returns>
     vector<int> BellmanFord(int& V, vector<Edge>& edges) {
         /*
             Step 1 - Add a new vertex 0 to the given graph, add edges of
@@ -73,7 +82,14 @@ private:
         return dist;
     }
 
-    // Dijkstra Algorithm
+    /// <summary>
+    /// Dijkstra's algorithm
+    /// </summary>
+    /// <param name="src">Index of current vertex</param>
+    /// <param name="adj_list">Graph adjacency list</param>
+    /// <param name="V">Number of vertices</param>
+    /// <param name="paths">Vector of the shortest pathes</param>
+    /// <returns>Distance(weight) of the shortest path</returns>
     vector<int> Dijkstra(int src, vector<vector<pair<int, int>>>& adj_list, int V, vector<vector<int>>& paths) {
         vector<int> dist(V + 1, numeric_limits<int>::max());
         dist[src] = 0;
@@ -107,8 +123,42 @@ private:
     }
 
 public:
+    /// <summary>
+    /// Graph output to the console
+    /// </summary>
+    void print_graph() {
+        for (int i = 1; i <= V; ++i) {
+            cout << "Vertex " << i << ": ";
+            for (const auto& neighbor : adj_list[i]) {
+                cout << "(" << neighbor.first << ", " << neighbor.second << ") ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+
+    /// <summary>
+    /// Johnson's algorithm 
+    /// </summary>
+    /// <param name="E">Number of edges</param>
+    /// <param name="paths">Pathes from each vertex to each vertex</param>
+    /// <returns>Distances(weight) of the shortest paths</returns>
+    virtual vector<vector<int>> Johnson(int E, vector<vector<int>>& paths) = 0;
+};
+
+/// <summary>
+/// Realization of graph without multithreading
+/// </summary>
+class OldGraphRealization : public GraphBase {
+public:
     OldGraphRealization(vector<Edge>& edges, int V) : GraphBase(edges, V) {}
 
+    /// <summary>
+    /// Johnson's algorithm without multithreading
+    /// </summary>
+    /// <param name="E">Number of edges</param>
+    /// <param name="paths">Pathes from each vertex to each vertex</param>
+    /// <returns>Distances(weight) of the shortest paths</returns>
     vector<vector<int>> Johnson(int E, vector<vector<int>>& paths) override {
         // the shortest distance values are values of h[]
         vector<int> h = BellmanFord(V, edges);
@@ -144,73 +194,25 @@ public:
     }
 };
 
-
+/// <summary>
+/// Realization of graph with multithreading
+/// </summary>
 class NewGraphRealization : public GraphBase {
 private:
-    mutex mtx; // Mutex for synchronization
-
-    vector<int> BellmanFord(int& V, vector<Edge>& edges) {
-        /*
-            Step 1 - Add a new vertex 0 to the given graph, add edges of
-            weight 0 from the new vertex to all the existing vertices.
-            edge = {0, u, 0} (1 <= u <= V)
-        */
-        for (int i = 1; i <= V; i++)
-            edges.push_back({ 0, i, 0 });
-
-        /*
-            Step 2 - Find the shortest path from the new vertex to all the other
-            existing vertices using the Bellman-Ford algorithm.
-        */
-        vector<int> dist(V + 1, LLONG_MAX);
-        dist[0] = 0;
-
-        for (int i = 1; i < V; i++)
-            for (auto e : edges)
-                if (dist[e.from] != LLONG_MAX && dist[e.to] > dist[e.from] + e.weight)
-                    dist[e.to] = dist[e.from] + e.weight;
-
-        // the shortest distance values are values of h[]
-        return dist;
-    }
-
-    // Dijkstra Algorithm
-    vector<int> Dijkstra(int src, vector<vector<pair<int, int>>>& adj_list, int V, vector<vector<int>>& paths) {
-        vector<int> dist(V + 1, numeric_limits<int>::max());
-        dist[src] = 0;
-
-        // initialize the Fibonacci heap
-        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
-        pq.push({ 0, src });
-
-        // initialize the parent array to track the shortest path
-        vector<int> parent(V + 1, -1);
-        parent[src] = src;
-
-        while (!pq.empty()) {
-            int f = pq.top().second;
-            pq.pop();
-
-            for (const auto& u : adj_list[f]) {
-                int s = u.first;
-                int w = u.second;
-                if (dist[f] + w < dist[s]) {
-                    dist[s] = dist[f] + w;
-                    parent[s] = f; // update the parent vertex
-                    pq.push({ dist[s], s });
-                }
-            }
-        }
-
-        paths[src] = parent;
-
-        return dist;
-    }
-
+    /// <summary>
+    /// Mutex for synchronization
+    /// </summary>
+    mutex mtx; 
 
 public:
     NewGraphRealization(vector<Edge>& edges, int V) : GraphBase(edges, V) {}
 
+    /// <summary>
+    /// Johnson's algorithm with multithreading
+    /// </summary>
+    /// <param name="E">Number of edges</param>
+    /// <param name="paths">Pathes from each vertex to each vertex</param>
+    /// <returns>Distances(weight) of the shortest paths</returns>
     vector<vector<int>> Johnson(int E, vector<vector<int>>& paths) override {
         // the shortest distance values are values of h[]
         vector<int> h = BellmanFord(V, edges);
