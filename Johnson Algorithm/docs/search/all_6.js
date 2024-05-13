@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mtx_0',['mtx',['../class_new_graph_realization.html#aae2064f2558762fc3e7961c8d6fdb767',1,'NewGraphRealization']]]
+  ['printgraph_0',['printGraph',['../class_graph.html#a5ac05db53839e72af76cdb2bafe88b77',1,'Graph']]]
 ];

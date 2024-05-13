@@ -127,7 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Graph.cpp" />
+    <ClCompile Include="GraphMT.cpp" />
+    <ClCompile Include="GraphS.cpp" />
     <ClCompile Include="Johnson Algorithm.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Edge.h" />
+    <ClInclude Include="GenerateFile.h" />
+    <ClInclude Include="Graph.h" />
+    <ClInclude Include="GraphMT.h" />
+    <ClInclude Include="GraphS.h" />
+    <ClInclude Include="ThreadPool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,0 +1,37 @@
+\doxysection{Graph.\+h}
+\hypertarget{_graph_8h_source}{}\label{_graph_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <queue>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}Edge.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ lng\ long\ long}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_graph}{Graph}}\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00016\ \ \ \ \ lng\ V;}
+\DoxyCodeLine{00017\ \ \ \ \ std::vector<Edge>\ edges;}
+\DoxyCodeLine{00021\ \ \ \ \ std::vector<std::vector<std::pair<lng,\ lng>>>\ \mbox{\hyperlink{class_graph_a6a10618f0c739bf365885bb4794310b0}{adj\_list}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00028\ \ \ \ \ \mbox{\hyperlink{class_graph_a86f7117c75f010d18eee13878ff21a6a}{Graph}}(std::vector<Edge>\&\ edges,\ lng\ V)\ :\ edges(edges),\ V(V)\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph_a6a10618f0c739bf365885bb4794310b0}{adj\_list}}.resize(V\ +\ 1);}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ edge\ :\ edges)}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph_a6a10618f0c739bf365885bb4794310b0}{adj\_list}}[edge.from].emplace\_back(edge.to,\ edge.weight);}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ std::vector<lng>\ \mbox{\hyperlink{class_graph_a081465c9a2f3fc9e80068aeb54426b2d}{BellmanFord}}(lng\&\ V,\ std::vector<Edge>\&\ edges);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ std::vector<lng>\ \mbox{\hyperlink{class_graph_ae8c55e3d29c30c703633b8518ee3d6fc}{Dijkstra}}(lng\ src,\ std::vector<std::vector<std::pair<lng,\ lng>>>\&\ \mbox{\hyperlink{class_graph_a6a10618f0c739bf365885bb4794310b0}{adj\_list}},\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ lng\ V,\ std::vector<std::vector<lng>>\&\ paths);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_graph_a5ac05db53839e72af76cdb2bafe88b77}{printGraph}}();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keyword}{virtual}\ std::vector<std::vector<lng>>\ \mbox{\hyperlink{class_graph_a6cf9c3fb8958a82da441c2a77895074c}{Johnson}}(lng\ E,\ std::vector<std::vector<lng>>\&\ paths)\ =\ 0;}
+\DoxyCodeLine{00049\ \};}
+
+\end{DoxyCode}

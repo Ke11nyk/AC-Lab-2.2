@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['newgraphrealization_0',['NewGraphRealization',['../class_new_graph_realization.html',1,'']]]
+  ['threadpool_0',['ThreadPool',['../class_thread_pool.html',1,'']]]
 ];

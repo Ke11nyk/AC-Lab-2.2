@@ -1,0 +1,146 @@
+\doxysection{Graph Class Reference}
+\hypertarget{class_graph}{}\label{class_graph}\index{Graph@{Graph}}
+
+
+Basic class of graph.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+Inheritance diagram for Graph\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_graph_a5ac05db53839e72af76cdb2bafe88b77}\label{class_graph_a5ac05db53839e72af76cdb2bafe88b77} 
+void {\bfseries print\+Graph} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_graph}{Graph} output to the console. \end{DoxyCompactList}\item 
+virtual std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \mbox{\hyperlink{class_graph_a6cf9c3fb8958a82da441c2a77895074c}{Johnson}} (lng E, std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \&paths)=0
+\begin{DoxyCompactList}\small\item\em Johnson\textquotesingle{}s algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a86f7117c75f010d18eee13878ff21a6a}{Graph}} (std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ \&edges, lng V)
+\begin{DoxyCompactList}\small\item\em Constructor of the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ lng $>$ \mbox{\hyperlink{class_graph_a081465c9a2f3fc9e80068aeb54426b2d}{Bellman\+Ford}} (lng \&V, std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ \&edges)
+\begin{DoxyCompactList}\small\item\em Bellman-\/\+Ford algorithm. \end{DoxyCompactList}\item 
+std\+::vector$<$ lng $>$ \mbox{\hyperlink{class_graph_ae8c55e3d29c30c703633b8518ee3d6fc}{Dijkstra}} (lng src, std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ lng, lng $>$ $>$ $>$ \&\mbox{\hyperlink{class_graph_a6a10618f0c739bf365885bb4794310b0}{adj\+\_\+list}}, lng V, std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \&paths)
+\begin{DoxyCompactList}\small\item\em Dijkstra\textquotesingle{}s algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_graph_a5671e17b89b3e781276d68160dd0c20e}\label{class_graph_a5671e17b89b3e781276d68160dd0c20e} 
+lng {\bfseries V}
+\item 
+\Hypertarget{class_graph_a28d19ea9c7d111f55fee78331abe88bd}\label{class_graph_a28d19ea9c7d111f55fee78331abe88bd} 
+std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ {\bfseries edges}
+\item 
+\Hypertarget{class_graph_a6a10618f0c739bf365885bb4794310b0}\label{class_graph_a6a10618f0c739bf365885bb4794310b0} 
+std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ lng, lng $>$ $>$ $>$ {\bfseries adj\+\_\+list}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_graph}{Graph} adjacency list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Basic class of graph. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_graph_a86f7117c75f010d18eee13878ff21a6a}\label{class_graph_a86f7117c75f010d18eee13878ff21a6a} 
+\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily Graph\+::\+Graph (\begin{DoxyParamCaption}\item[{std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ \&}]{edges,  }\item[{lng}]{V }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+Constructor of the graph. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edges} & Vector of edges\\
+\hline
+{\em V} & Number of vertices\\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graph_a081465c9a2f3fc9e80068aeb54426b2d}\label{class_graph_a081465c9a2f3fc9e80068aeb54426b2d} 
+\index{Graph@{Graph}!BellmanFord@{BellmanFord}}
+\index{BellmanFord@{BellmanFord}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{BellmanFord()}{BellmanFord()}}
+{\footnotesize\ttfamily std\+::vector$<$ lng $>$ Graph\+::\+Bellman\+Ford (\begin{DoxyParamCaption}\item[{lng \&}]{V,  }\item[{std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ \&}]{edges }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Bellman-\/\+Ford algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em V} & Number of vertices\\
+\hline
+{\em edges} & Vector with edges of graph\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance(weight) of the shortest path
+\end{DoxyReturn}
+\Hypertarget{class_graph_ae8c55e3d29c30c703633b8518ee3d6fc}\label{class_graph_ae8c55e3d29c30c703633b8518ee3d6fc} 
+\index{Graph@{Graph}!Dijkstra@{Dijkstra}}
+\index{Dijkstra@{Dijkstra}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Dijkstra()}{Dijkstra()}}
+{\footnotesize\ttfamily std\+::vector$<$ lng $>$ Graph\+::\+Dijkstra (\begin{DoxyParamCaption}\item[{lng}]{src,  }\item[{std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ lng, lng $>$ $>$ $>$ \&}]{adj\+\_\+list,  }\item[{lng}]{V,  }\item[{std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \&}]{paths }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Dijkstra\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em src} & Index of current vertex\\
+\hline
+{\em adj\+\_\+list} & \doxylink{class_graph}{Graph} adjacency list\\
+\hline
+{\em V} & Number of vertices\\
+\hline
+{\em paths} & Vector of the shortest pathes\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance(weight) of the shortest path
+\end{DoxyReturn}
+\Hypertarget{class_graph_a6cf9c3fb8958a82da441c2a77895074c}\label{class_graph_a6cf9c3fb8958a82da441c2a77895074c} 
+\index{Graph@{Graph}!Johnson@{Johnson}}
+\index{Johnson@{Johnson}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Johnson()}{Johnson()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ Graph\+::\+Johnson (\begin{DoxyParamCaption}\item[{lng}]{E,  }\item[{std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \&}]{paths }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Johnson\textquotesingle{}s algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em E} & Number of edges\\
+\hline
+{\em paths} & Pathes from each vertex to each vertex\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distances(weight) of the shortest paths
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_graph_m_t_ac0d6e408d85b2edbe29275ac686623a3}{Graph\+MT}}, and \mbox{\hyperlink{class_graph_s_a766ccdc920fb1186e03a856366a655fa}{GraphS}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Graph.\+h\item 
+Graph.\+cpp\end{DoxyCompactItemize}

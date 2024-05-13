@@ -1,0 +1,59 @@
+\doxysection{Generate\+File.\+h}
+\hypertarget{_generate_file_8h_source}{}\label{_generate_file_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ generateFile()\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ numVertices\ =\ 500;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ numEdges\ =\ 5000;}
+\DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ maxWeight\ =\ 100;}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ random\ number\ generator}}
+\DoxyCodeLine{00013\ \ \ \ \ std::random\_device\ rd;}
+\DoxyCodeLine{00014\ \ \ \ \ std::mt19937\ gen(rd());}
+\DoxyCodeLine{00015\ \ \ \ \ std::uniform\_int\_distribution<>\ dis\_vertex(1,\ numVertices);}
+\DoxyCodeLine{00016\ \ \ \ \ std::uniform\_int\_distribution<>\ dis\_weight(1,\ maxWeight);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{comment}{//\ Create\ a\ vector\ to\ store\ edges}}
+\DoxyCodeLine{00019\ \ \ \ \ std::vector<std::pair<int,\ int>>\ edges;}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{//\ Generate\ random\ edges}}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordflow}{while}\ (edges.size()\ <\ numEdges)\ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ from\ =\ dis\_vertex(gen);}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ to\ =\ dis\_vertex(gen);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((edges.size()\ >\ 0\ \&\&\ from\ !=\ to\ \&\&\ std::make\_pair(std::min(from,\ to),\ std::max(from,\ to))\ !=\ edges.back())\ ||\ edges.size()\ ==\ 0)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ edges.emplace\_back(from,\ to);}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00030\ \ \ \ \ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{comment}{//\ Shuffle\ the\ edges}}
+\DoxyCodeLine{00033\ \ \ \ \ std::shuffle(edges.begin(),\ edges.end(),\ gen);}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{comment}{//\ Open\ the\ output\ file}}
+\DoxyCodeLine{00036\ \ \ \ \ std::ofstream\ outputFile(\textcolor{stringliteral}{"{}input.txt"{}});}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (!outputFile.is\_open())\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ output\ file."{}}\ <<\ std::endl;}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00040\ \ \ \ \ \}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Write\ the\ number\ of\ vertices\ and\ edges\ to\ the\ file}}
+\DoxyCodeLine{00043\ \ \ \ \ outputFile\ <<\ numVertices\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ numEdges\ <<\ std::endl;}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \textcolor{comment}{//\ Write\ the\ edges\ to\ the\ file}}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ edge\ :\ edges)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ weight\ =\ dis\_weight(gen);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ outputFile\ <<\ edge.first\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ edge.second\ <<\ \textcolor{stringliteral}{"{}\ "{}}\ <<\ weight\ <<\ std::endl;}
+\DoxyCodeLine{00049\ \ \ \ \ \}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ outputFile.close();}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ data\ written\ to\ 'input.txt'"{}}\ <<\ std::endl;}
+\DoxyCodeLine{00054\ \}}
+
+\end{DoxyCode}

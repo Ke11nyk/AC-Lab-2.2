@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['adj_5flist_0',['adj_list',['../class_graph_base.html#a0e69b67f8dac5fc1a34eba2036a462e9',1,'GraphBase']]]
+  ['adj_5flist_0',['adj_list',['../class_graph.html#a6a10618f0c739bf365885bb4794310b0',1,'Graph']]]
 ];

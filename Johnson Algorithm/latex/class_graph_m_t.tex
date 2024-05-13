@@ -1,0 +1,91 @@
+\doxysection{Graph\+MT Class Reference}
+\hypertarget{class_graph_m_t}{}\label{class_graph_m_t}\index{GraphMT@{GraphMT}}
+
+
+Realization of graph with multithreading.  
+
+
+
+
+{\ttfamily \#include $<$Graph\+MT.\+h$>$}
+
+Inheritance diagram for Graph\+MT\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_graph_m_t}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_graph_m_t_a80f95f0d70634d88b58bdbe52fbed5b8}\label{class_graph_m_t_a80f95f0d70634d88b58bdbe52fbed5b8} 
+{\bfseries Graph\+MT} (std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ \&edges, lng V, size\+\_\+t num\+\_\+threads)
+\item 
+std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \mbox{\hyperlink{class_graph_m_t_ac0d6e408d85b2edbe29275ac686623a3}{Johnson}} (lng E, std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \&paths) override
+\begin{DoxyCompactList}\small\item\em Johnson\textquotesingle{}s algorithm with multithreading. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_graph}{Graph}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries print\+Graph} ()
+\begin{DoxyCompactList}\small\item\em \doxylink{class_graph}{Graph} output to the console. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_graph_m_t_ae784427090de9485a7ced715cbb6f4c9}\label{class_graph_m_t_ae784427090de9485a7ced715cbb6f4c9} 
+\mbox{\hyperlink{class_thread_pool}{Thread\+Pool}} {\bfseries pool}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Member Functions inherited from \mbox{\hyperlink{class_graph}{Graph}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_graph_a86f7117c75f010d18eee13878ff21a6a}{Graph}} (std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ \&edges, lng V)
+\begin{DoxyCompactList}\small\item\em Constructor of the graph. \end{DoxyCompactList}\item 
+std\+::vector$<$ lng $>$ \mbox{\hyperlink{class_graph_a081465c9a2f3fc9e80068aeb54426b2d}{Bellman\+Ford}} (lng \&V, std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ \&edges)
+\begin{DoxyCompactList}\small\item\em Bellman-\/\+Ford algorithm. \end{DoxyCompactList}\item 
+std\+::vector$<$ lng $>$ \mbox{\hyperlink{class_graph_ae8c55e3d29c30c703633b8518ee3d6fc}{Dijkstra}} (lng src, std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ lng, lng $>$ $>$ $>$ \&\mbox{\hyperlink{class_graph_a6a10618f0c739bf365885bb4794310b0}{adj\+\_\+list}}, lng V, std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \&paths)
+\begin{DoxyCompactList}\small\item\em Dijkstra\textquotesingle{}s algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_graph}{Graph}}}
+\begin{DoxyCompactItemize}
+\item 
+lng {\bfseries V}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_edge}{Edge}} $>$ {\bfseries edges}
+\item 
+std\+::vector$<$ std\+::vector$<$ std\+::pair$<$ lng, lng $>$ $>$ $>$ {\bfseries adj\+\_\+list}
+\begin{DoxyCompactList}\small\item\em \doxylink{class_graph}{Graph} adjacency list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Realization of graph with multithreading. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graph_m_t_ac0d6e408d85b2edbe29275ac686623a3}\label{class_graph_m_t_ac0d6e408d85b2edbe29275ac686623a3} 
+\index{GraphMT@{GraphMT}!Johnson@{Johnson}}
+\index{Johnson@{Johnson}!GraphMT@{GraphMT}}
+\doxysubsubsection{\texorpdfstring{Johnson()}{Johnson()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ Graph\+MT\+::\+Johnson (\begin{DoxyParamCaption}\item[{lng}]{E,  }\item[{std\+::vector$<$ std\+::vector$<$ lng $>$ $>$ \&}]{paths }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Johnson\textquotesingle{}s algorithm with multithreading. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em E} & Number of edges\\
+\hline
+{\em paths} & Pathes from each vertex to each vertex\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distances(weight) of the shortest paths
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_graph_a6cf9c3fb8958a82da441c2a77895074c}{Graph}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Graph\+MT.\+h\item 
+Graph\+MT.\+cpp\end{DoxyCompactItemize}

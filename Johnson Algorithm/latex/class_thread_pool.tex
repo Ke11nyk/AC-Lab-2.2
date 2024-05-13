@@ -1,0 +1,46 @@
+\doxysection{Thread\+Pool Class Reference}
+\hypertarget{class_thread_pool}{}\label{class_thread_pool}\index{ThreadPool@{ThreadPool}}
+
+
+Thread pool implementation.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+Pool.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_thread_pool_a931f8f409a49a27d5e779f2135eb5519}\label{class_thread_pool_a931f8f409a49a27d5e779f2135eb5519} 
+{\bfseries Thread\+Pool} (size\+\_\+t num\+\_\+threads)
+\item 
+\Hypertarget{class_thread_pool_a732808b259f4b1c1a9e3de50bec6ddb6}\label{class_thread_pool_a732808b259f4b1c1a9e3de50bec6ddb6} 
+{\footnotesize template$<$class F , class... Args$>$ }\\auto {\bfseries Enqueue} (F \&\&f, Args \&\&... args) -\/$>$ std\+::future$<$ typename std\+::result\+\_\+of$<$ F(Args...)$>$\+::type $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_thread_pool_a9ef531ca4b7d046f3acaf4b5b36cdeff}\label{class_thread_pool_a9ef531ca4b7d046f3acaf4b5b36cdeff} 
+std\+::vector$<$ std\+::thread $>$ {\bfseries workers}
+\item 
+\Hypertarget{class_thread_pool_aecd2f98ff952b12bcd21102df80bdfe9}\label{class_thread_pool_aecd2f98ff952b12bcd21102df80bdfe9} 
+std\+::queue$<$ std\+::function$<$ void()$>$ $>$ {\bfseries tasks}
+\item 
+\Hypertarget{class_thread_pool_adf76c928f148e8fdcd7e34c2bbaa97e3}\label{class_thread_pool_adf76c928f148e8fdcd7e34c2bbaa97e3} 
+std\+::mutex {\bfseries queue\+\_\+mutex}
+\item 
+\Hypertarget{class_thread_pool_a6dd0c005d9bc726e976def8d6ac2d2a7}\label{class_thread_pool_a6dd0c005d9bc726e976def8d6ac2d2a7} 
+std\+::condition\+\_\+variable {\bfseries condition}
+\item 
+\Hypertarget{class_thread_pool_a04e2cc4b3c979b4e054071436988d23d}\label{class_thread_pool_a04e2cc4b3c979b4e054071436988d23d} 
+bool {\bfseries stop}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Thread pool implementation. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Thread\+Pool.\+h\end{DoxyCompactItemize}

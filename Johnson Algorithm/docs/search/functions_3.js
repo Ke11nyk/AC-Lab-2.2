@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['graphbase_0',['GraphBase',['../class_graph_base.html#a80148251a53f7d909ca13b77c68f5204',1,'GraphBase']]]
+  ['graph_0',['Graph',['../class_graph.html#a86f7117c75f010d18eee13878ff21a6a',1,'Graph']]]
 ];
