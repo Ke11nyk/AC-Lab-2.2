@@ -7,7 +7,7 @@
 \DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <random>}}
 \DoxyCodeLine{00005\ }
 \DoxyCodeLine{00006\ }
-\DoxyCodeLine{00007\ \textcolor{keywordtype}{void}\ generateFile()\ \{}
+\DoxyCodeLine{00007\ \textcolor{keywordtype}{int}\ generateFile()\ \{}
 \DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ numVertices\ =\ 500;}
 \DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ numEdges\ =\ 5000;}
 \DoxyCodeLine{00010\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ maxWeight\ =\ 100;}
@@ -39,7 +39,7 @@
 \DoxyCodeLine{00036\ \ \ \ \ std::ofstream\ outputFile(\textcolor{stringliteral}{"{}input.txt"{}});}
 \DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (!outputFile.is\_open())\ \{}
 \DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Failed\ to\ open\ output\ file."{}}\ <<\ std::endl;}
-\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
 \DoxyCodeLine{00040\ \ \ \ \ \}}
 \DoxyCodeLine{00041\ }
 \DoxyCodeLine{00042\ \ \ \ \ \textcolor{comment}{//\ Write\ the\ number\ of\ vertices\ and\ edges\ to\ the\ file}}
@@ -54,6 +54,8 @@
 \DoxyCodeLine{00051\ \ \ \ \ outputFile.close();}
 \DoxyCodeLine{00052\ }
 \DoxyCodeLine{00053\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Input\ data\ written\ to\ 'input.txt'"{}}\ <<\ std::endl;}
-\DoxyCodeLine{00054\ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00056\ \}}
 
 \end{DoxyCode}
