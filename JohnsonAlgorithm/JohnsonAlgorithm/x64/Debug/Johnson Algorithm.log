@@ -1,0 +1,7 @@
+﻿  main.cpp
+D:\AC-Lab-2.2\JohnsonAlgorithm\main.cpp(98,45): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
+D:\AC-Lab-2.2\JohnsonAlgorithm\main.cpp(98,45): warning C4244:         with
+D:\AC-Lab-2.2\JohnsonAlgorithm\main.cpp(98,45): warning C4244:         [
+D:\AC-Lab-2.2\JohnsonAlgorithm\main.cpp(98,45): warning C4244:             _Ty=__int64
+D:\AC-Lab-2.2\JohnsonAlgorithm\main.cpp(98,45): warning C4244:         ]
+  Johnson Algorithm.vcxproj -> D:\AC-Lab-2.2\JohnsonAlgorithm\x64\Debug\JohnsonAlgorithm.exe

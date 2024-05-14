@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GtaTestDurations xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Executable>D:\AC-Lab-2.2\JohnsonAlgorithm\x64\Debug\JohnsonAlgorithmTest.exe</Executable>
+  <TestDurations>
+    <TestDuration Test="TestCaseName.TestName" Duration="1" />
+    <TestDuration Test="EdgeTest.EdgeTest" Duration="1" />
+    <TestDuration Test="GenerateFileTest.GenerateFileTest" Duration="143" />
+    <TestDuration Test="GraphTest.OpenFileTest" Duration="1" />
+    <TestDuration Test="GraphSTest.JohnsonAlgorithm" Duration="1" />
+    <TestDuration Test="GraphSJohnsonAlgorithmTest.NotNegativeCycle" Duration="1" />
+    <TestDuration Test="GraphSJohnsonAlgorithmTest.NegativeCycle" Duration="1" />
+    <TestDuration Test="GraphMTJohnsonAlgorithmTest.NotNegativeCycle" Duration="3" />
+    <TestDuration Test="GraphMTJohnsonAlgorithmTest.NegativeCycle" Duration="1" />
+  </TestDurations>
+</GtaTestDurations>

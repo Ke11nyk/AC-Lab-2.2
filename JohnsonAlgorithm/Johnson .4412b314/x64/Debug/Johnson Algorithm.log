@@ -1,0 +1,21 @@
+﻿  Graph.cpp
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(62,19): warning C4244: 'initializing': conversion from 'const _Ty1' to 'int', possible loss of data
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(62,19): warning C4244:         with
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(62,19): warning C4244:         [
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(62,19): warning C4244:             _Ty1=__int64
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(62,19): warning C4244:         ]
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(63,19): warning C4244: 'initializing': conversion from 'const _Ty2' to 'int', possible loss of data
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(63,19): warning C4244:         with
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(63,19): warning C4244:         [
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(63,19): warning C4244:             _Ty2=__int64
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\Graph.cpp(63,19): warning C4244:         ]
+  GraphMT.cpp
+  GraphS.cpp
+  main.cpp
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\main.cpp(100,45): warning C4244: '=': conversion from '_Ty' to 'int', possible loss of data
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\main.cpp(100,45): warning C4244:         with
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\main.cpp(100,45): warning C4244:         [
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\main.cpp(100,45): warning C4244:             _Ty=__int64
+D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\main.cpp(100,45): warning C4244:         ]
+  Generating Code...
+  Johnson Algorithm.vcxproj -> D:\Uni materials\2 course\Algorithms and complexity\2 semester\AC-Lab-2.2\Johnson Algorithm\x64\Debug\Johnson Algorithm.exe
